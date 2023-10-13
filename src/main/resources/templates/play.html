@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Плеер</title>
+</head>
+<body>
+    <a href="home">На главную</a>
+    <div th:each="el : ${muFiles}">
+        <h3 th:text="${el.name}"/>
+        <h3 th:text="${el.link}"/>
+        <h3 th:text="${el.about}"/>
+        <h3 th:text="${el.path}"/>
+    </div>
+</body>
+</html>
