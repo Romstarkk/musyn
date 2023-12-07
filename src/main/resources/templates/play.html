@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Play</title>
+</head>
+<body>
+
+<h1>All music</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Ссылка</th>
+      <th>Файл</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr th:each="mFile : ${mFiles}">
+    <td>
+      <a th:href="@{'/play?pos='+*{pos}}" th:text = "${mFile.name}"></a>
+    </td>
+    <td th:text="${mFile.url}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<iframe width="560" height="315"
+        th:src="${mFiles[{pos}].url}">MMM
+</iframe>
+<h1>Добавить файл</h1>
+<form action="#" th:action="@{/play}" th:object="${newMFile}" method="post">
+  <label for="name">Имя:</label>
+  <input type="text" id="name" th:field="*{name}" />
+
+  <label for="url">URL:</label>
+  <input type="text" id="url" th:field="*{url}" />
+
+  <button type="submit">Create</button>
+</form>
+</body>
+</html>
