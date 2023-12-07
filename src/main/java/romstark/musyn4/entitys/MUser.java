@@ -21,5 +21,4 @@ public class MUser {
     @Column(nullable = false)
     private String password;
     private Role role = Role.USER;
-
 }
