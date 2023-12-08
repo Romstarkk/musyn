@@ -55,7 +55,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin((form) -> form
                         .loginPage("/loginPage")
-                        .defaultSuccessUrl("/admin",true)
+                        .defaultSuccessUrl("/play",true)
                         .permitAll())
                 .logout((logout) -> logout.permitAll());
         return http.build();

@@ -16,9 +16,11 @@ public class MUser {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long ID;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
     private Role role = Role.USER;
+    @OneToMany
+    private List<MList> lists;
 }

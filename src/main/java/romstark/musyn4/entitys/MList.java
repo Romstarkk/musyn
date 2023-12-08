@@ -13,10 +13,12 @@ public class MList {
     private Long id;
 
     private String name;
-    private boolean isPrivate;
+    private boolean isPrivate = true;
     private int size;
 
+    @ManyToOne
+    private MUser author;
+
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name="mfile_ID")
-    List<MFile> files;
+    private List<MFile> files;
 }
